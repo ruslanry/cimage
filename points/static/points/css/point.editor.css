@@ -1,0 +1,64 @@
+#editMap
+{
+	border: 1px solid #000000;
+	height: 500px;
+}
+/*DropZone*/
+#dz, #videoPreview
+{
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	min-height: 128px;
+	-webkit-border-radius: 5px;
+	border-radius: 5;
+	background: #FFFFFF;
+	padding: 10px;
+}
+.loadedcontainer
+{
+	cursor: pointer;
+	display: inline-block;
+	min-height: 150px;
+	position: relative;
+	min-width: 80px;
+}
+.delmedia, .backmedia
+{
+	position: absolute;
+	bottom: 8px;
+	right: 8px;
+	display: compact;
+}
+.setmainmedia
+{
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	display: compact;
+}
+.pointmedia
+{
+	display: block;
+	height: 150px;
+	margin: 2px;
+	border: 3px solid #FFFFFF;
+}
+.pointmedia:hover
+{
+	opacity: 0.8;
+	-moz-opacity: 0.8;
+	filter: alpha(opacity=80) black;
+	-khtml-opacity: 0.8;
+	border: 3px solid #3665FE;
+}
+.added
+{
+	border: 3px solid #449D44;
+}
+.todel
+{
+	border: 3px solid #FF1515;
+	opacity: 0.3;
+	-moz-opacity: 0.3;
+	filter: alpha(opacity=30) black;
+	-khtml-opacity: 0.3;
+}

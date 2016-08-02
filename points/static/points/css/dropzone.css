@@ -1,0 +1,101 @@
+.dropzone, .dropzone *, .dropzone-previews, .dropzone-previews *
+{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.dropzone
+{
+	position: relative;
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	background: rgba(0, 0, 0, 0.02);
+	padding: 1em;
+}
+.dropzone.dz-clickable
+{
+	cursor: pointer;
+}
+.dropzone.dz-clickable .dz-message, .dropzone.dz-clickable .dz-message SPAN
+{
+	cursor: pointer;
+}
+.dropzone.dz-clickable *
+{
+	cursor: default;
+}
+.dropzone.dz-drag-hover
+{
+	border-color: rgba(0, 0, 0, 0.15);
+	background: rgba(0, 0, 0, 0.04);
+}
+.dropzone.dz-started .dz-message
+{
+	display: none;
+}
+.dropzone
+{
+	border: 3px dashed rgba(0, 0, 0, 0.2);
+	min-height: 128px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	background: rgba(0, 0, 0, 0.03);
+	padding: 23px;
+}
+.dropzone .dz-default.dz-message
+{
+	opacity: 1;
+	-ms-filter: none;
+	filter: none;
+	-webkit-transition: opacity 0.3s ease-in-out;
+	-moz-transition: opacity 0.3s ease-in-out;
+	-o-transition: opacity 0.3s ease-in-out;
+	-ms-transition: opacity 0.3s ease-in-out;
+	transition: opacity 0.3s ease-in-out;
+	background-image: url("../img/icon.photo.png");
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	position: absolute;
+	width: 72px;
+	height: 72px;
+	margin-left: -36px;
+	margin-top: -36px;
+	top: 50%;
+	left: 50%;
+	/*[ph]0*/
+	/*[ph]1*/
+	/*[ph]2*/
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5)
+{
+	.dropzone .dz-default.dz-message
+	{
+		/*[id]0*/background-image: url("../images/spritemap@2x.png");
+		/*[id]1*/-webkit-background-size: 428px 406px;
+		/*[id]2*/background-size: 428px 406px;
+	}
+}
+.dropzone .dz-default.dz-message SPAN
+{
+	display: none;
+}
+.dropzone.dz-square .dz-default.dz-message
+{
+	background-position: 0 -123px;
+	width: 268px;
+	margin-left: -134px;
+	height: 174px;
+	margin-top: -87px;
+}
+.dropzone.dz-drag-hover .dz-message
+{
+	opacity: 0.15;
+	filter: alpha(opacity=15);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=15)";
+}
+.dropzone.dz-started .dz-message
+{
+	display: block;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+}

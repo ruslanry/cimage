@@ -1,0 +1,114 @@
+.cloading
+{
+	background-image: url(../img/loading.gif);
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
+.cloadingminiblack
+{
+	background-image: url(../img/loading.ba.mini.gif);
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+.cloadingminiblue
+{
+	background-image: url(../img/loading.bu.mini.gif);
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
+.cloadinglineblue
+{
+	background-image: url(../img/loading.bu.line.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.hide
+{
+	display: none;
+}
+.errorblock
+{
+	border: 1px solid rgba(255, 0, 0, 0.5);
+}
+.icons
+{
+	height: 15px;
+	margin-right: 10px;
+}
+.elementimg
+{
+	width: 24px;
+	height: 20px;
+}
+.padding013
+{
+	padding: 0 13px;
+}
+.tpimg
+{
+/*border: 1px solid rgba(0, 0, 0, 0.8);*/
+	max-width: 128px;
+	max-height: 128px;
+	margin: 35%;
+}
+.tpImgBGMap, .tpImgBGSat
+{
+	padding: 0px;
+	margin: 0px;
+	border: 1px solid rgba(0, 0, 0, 0.8);
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	height: 128px;
+	width: 128px;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.tpImgBGMap
+{
+	background-image: url(../cms/imgtemp/exmap.png);
+}
+.tpImgBGSat
+{
+	background-image: url(../cms/imgtemp/exsat.png);
+}
+.trueElement
+{
+	background-color: #9CD89C;
+}
+.falseElement
+{
+	background-color: #D89C9C;
+}
+.flag
+{
+	height: 20px;
+	width: 20px;
+}
+.xdebug-var-dump
+{
+	border: 1px solid #000000;
+	display: block;
+	position: absolute;
+	top: 20%;
+	left: -95%;
+	width: 100%;
+	z-index: 500;
+}
+.xdebug-var-dump:hover
+{
+	left: 0px;
+	z-index: 501;
+}
+
+.short
+{
+	width: 20px;
+}
+.shortx2
+{
+	width: 100px;
+}
+.margin10
+{
+	margin: 0px 3px;
+}
