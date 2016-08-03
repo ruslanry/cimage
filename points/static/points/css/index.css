@@ -1,0 +1,34 @@
+#content
+{
+	position: fixed;
+	top: 60px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	background-color: #FFFFFF;
+	border-top: 0px solid #000000;
+}
+#lines
+{
+	top: 5px;
+	left: 5px;
+	right: 5px;
+	bottom: 5px;
+	position: absolute;
+	/*[disabled]background-color:#E5F4F0;*/
+	border: 1px solid #BDBDBD;
+}
+#mainMapContainer
+{
+	top: 15px;
+	left: 15px;
+	right: 15px;
+	bottom: 15px;
+	position: absolute;
+	border: 1px double #000000;
+}
+#mainMap
+{
+	width: 100%;
+	height: 100%;
+}

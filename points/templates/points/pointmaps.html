@@ -1,0 +1,131 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang='ru'
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Список точек</title>
+    <link rel="stylesheet" href="{% static "points/css/bootstrap.min.css" %}"/>
+    <link rel="stylesheet" href="{% static "points/css/dropzone.css" %}">
+    <link rel="stylesheet" href="{% static "points/css/allcss.css" %}"/>
+    <link rel="stylesheet" href="{% static "points/css/header.css" %}"/>
+    <link rel="stylesheet" href="{% static "points/css/index.css" %}"/>
+</head>
+<body>
+        <div id="header">
+        <a href="./index.php"><img id="logo" src="./img/logo.png"/></a>
+            <div id="rightPanel">
+                <div id="userPanel" class="dropdown">
+                    <img src="user/foto/./user_e2c08b20e7c7a4599c137729f4f3f437.jpg" class="userPic img-circle" />
+                    <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle amenu">Руслан<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./index.php">Главная карта</a></li><li><a href="javascript:;" onclick="refreshMarkers();">Обновить маркеры</a></li><li><a href="./editpoint.php">Добавить точку</a></li><li><a href="./cms/settings.php" target="_blank">Настройки системы</a></li><li><a href="./userprofile.php">Профиль</a></li><li><a href="javascript:;" onclick=";">Мои маршруты</a></li><li><a href="./user/logout.php">Выйти</a></li>                    </ul>
+                </div>
+                <div id="langPanel">
+                    <a href="javascript:;" class="amenu">Русский</a>
+                </div>
+                <div id="menuPanel">
+                    <a href="javascript:;" class="amenu">=</a>
+                </div>
+            </div>
+        </div>
+    <div id="content">
+    <div id="lines"></div>
+    <div id="mainMapContainer">
+        <div id="mainMap"></div>
+    </div>
+</div>
+
+<script>
+	var map=null;
+	var showCluster=false;
+	var markers=[];
+	var clusterStyles = [
+		{
+			textColor: 'white',
+			//url: 'img/cmsmall.png',
+			height: 50,
+			width: 50
+		},
+		{
+			textColor: 'white',
+			//url: 'img/cmsmall.png',
+			height: 50,
+			width: 50
+		},
+		{
+			textColor: 'white',
+			//url: 'img/cmsmall.png',
+			height: 50,
+			width: 50
+		}
+	];
+	function loadMaps() {
+		var myLatLng = {lat: 60.000, lng: 50.000};
+		var mainMap=document.getElementById('mainMap');
+		var myOptions = {
+			mapTypeId: google.maps.MapTypeId.TERRAIN,
+			center: myLatLng,
+			zoom: 5,
+		};
+		map = new google.maps.Map(mainMap,myOptions);
+		loadPointList();
+	}
+	
+	function loadPointList(){
+		$.ajax({
+			url:'json.dat'
+			//, type:'POST'
+			, success: function(result) {
+                                //console.log(result)
+				//var jsonResult = JSON.parse(result);
+				//console.log(jsonResult)
+				//createPointArray(jsonResult);
+				createPointArray(result);
+			}
+		});
+	}
+	function createPointArray(pointData){
+	    markers=[];
+		pointArray=pointData;
+		for(var i=0;i<pointArray.length;i++){
+			pointArray[i].marker = new google.maps.Marker({
+				position: {lat: parseFloat(pointArray[i].point_lat), lng: parseFloat(pointArray[i].point_lon)},
+				map: null,
+				title:pointArray[i].point_name,
+				draggable: false,
+			});
+			//pointArray[i].marker.addListener('click', function() {
+			//	showInfo(parseInt(this.arrayId));
+			//});
+			//pointArray[i].marker.arrayId=i;
+			if (showCluster){
+				markers.push(pointArray[i].marker);
+			}else{
+				pointArray[i].marker.setMap(map);
+			}
+		}
+		if (showCluster){
+			clusterer = new MarkerClusterer(map, markers, {
+				gridSize: 50,
+				styles: clusterStyles,
+				maxZoom: 14
+			});
+		}
+	}
+</script>
+<script type="application/javascript" src="{% static "points/js/jquery-2.1.4.min.js" %}"></script>
+<script type="application/javascript" src="{% static "points/js/jquery.json-2.4.js" %}"></script>
+<script type="application/javascript" src="{% static "points/js/bootstrap.min.js" %}"></script>
+<script type="application/javascript" src="{% static "points/js/geo-min.js" %}"></script>
+<script type="application/javascript" src="{% static "points/js/gps.google.js" %}"></script>
+<script type="application/javascript" src="{% static "points/js/markerclusterer.js" %}"></script>
+
+
+<script async defer
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbyDJwI5plXchj5oZIVI9WmySMyUcL8H4&callback=loadMaps">
+</script>
+
+</body>
+</html>
+
