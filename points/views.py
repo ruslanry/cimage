@@ -23,7 +23,7 @@ def default(obj):
     raise TypeError
 
 def all_point_json(request):
-    result = Point.objects.values()
+    result = Point.objects.values()[100:200]
     list_result = [entry for entry in result]
     return HttpResponse(json.dumps(list_result, default=default), content_type='application/json')
 

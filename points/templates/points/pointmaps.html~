@@ -13,7 +13,7 @@
 </head>
 <body>
         <div id="header">
-        <a href="./index.php"><img id="logo" src="./img/logo.png"/></a>
+        <a href="./index.php"><img id="logo" src="./img/logo.png"/></a><a href="https://mapicons.mapsmarker.com/"><img id="" src="{% static "points/img/miclogo-88x31.gif" %}"/></a>
             <div id="rightPanel">
                 <div id="userPanel" class="dropdown">
                     <img src="user/foto/./user_e2c08b20e7c7a4599c137729f4f3f437.jpg" class="userPic img-circle" />
@@ -38,26 +38,29 @@
 
 <script>
 	var map=null;
-	var showCluster=false;
+	var showCluster=true;
 	var markers=[];
 	var clusterStyles = [
 		{
-			textColor: 'white',
-			//url: 'img/cmsmall.png',
-			height: 50,
-			width: 50
+			textColor: 'black',
+			url: '{% static "points/img/cluster.png" %}',
+			height: 37,
+			width: 32,
+			textsize: 20,
 		},
 		{
-			textColor: 'white',
-			//url: 'img/cmsmall.png',
-			height: 50,
-			width: 50
+			textColor: 'black',
+			url: '{% static "points/img/cluster.png" %}',
+			height: 37,
+			width: 32,
+			textsize: 20,
 		},
 		{
-			textColor: 'white',
-			//url: 'img/cmsmall.png',
-			height: 50,
-			width: 50
+			textColor: 'black',
+			url: '{% static "points/img/cluster.png" %}',
+			height: 37,
+			width: 32,
+			textsize: 20,
 		}
 	];
 	function loadMaps() {
@@ -75,12 +78,8 @@
 	function loadPointList(){
 		$.ajax({
 			url:'json.dat'
-			//, type:'POST'
 			, success: function(result) {
-                                console.log(result)
-				var jsonResult = JSON.parse(result);
-				console.log(jsonResult)
-				createPointArray(jsonResult);
+				createPointArray(result);
 			}
 		});
 	}
@@ -93,6 +92,8 @@
 				map: null,
 				title:pointArray[i].point_name,
 				draggable: false,
+				icon: '{% static "points/img/point.png" %}',
+				
 			});
 			//pointArray[i].marker.addListener('click', function() {
 			//	showInfo(parseInt(this.arrayId));
