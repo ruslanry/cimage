@@ -15,5 +15,7 @@ urlpatterns = [
     url(r'^maps/$', views.point_maps, name='point_maps'),
     # ex: /points/mapsjson/
     url(r'^maps/json.dat$', views.all_point_json, name='point_json'),
+    # ex: /points/template/
+    url(r'^template/$', views.testtemplate, name='testtemplate'),
 ]
 

@@ -1,9 +1,7 @@
-{% if points_list %}
-    <ul>
-    {% for point in points_list %}
-        <li><a href="/points/{{ point.id }}/">{{ point.point_name }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No point are available.</p>
-{% endif %}
+<a href="{% url 'main_index' %}">Главная</a><br>
+<a href="{% url 'points:index' %}">Point List</a><br>
+<a href="{% url 'points:point_maps' %}">Points Map</a><br>
+<a href="{% url 'admin:index' %}">Admin</a><br>
+<a href="{% url 'points:collect' %}">Collector</a><br>
+<a href="">User foto</a><br>
+

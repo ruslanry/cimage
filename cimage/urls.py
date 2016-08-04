@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.shortcuts import render
 
 def index_view(request):
-    return render(request, 'points/main.html')
+    return render(request, 'points/index.html')
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls, name='admin'),

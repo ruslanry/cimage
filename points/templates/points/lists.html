@@ -1,0 +1,30 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+    <meta charset="utf-8">
+    <title>Стартовая</title>
+    <link rel="stylesheet" href="{% static "points/css/allcss.css" %}"/>
+    <link rel="stylesheet" href="{% static "points/css/header.css" %}"/>
+    <link rel="stylesheet" href="{% static "points/css/index.css" %}"/>
+    <link rel="stylesheet" href="{% static "points/css/point.editor.css" %}"/>
+</head>
+<body>
+{% include "points/_header.html" %}
+    <div class="container">
+    <div class="page-buffer-top"></div>
+<div id="content">
+{% if points_list %}
+    <ul>
+    {% for point in points_list %}
+        <li><a href="/points/{{ point.id }}/">{{ point.point_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No point are available.</p>
+{% endif %}
+</div>
+</div>
+    {% include "points/_footer.html" %}
+</body>
+</html>

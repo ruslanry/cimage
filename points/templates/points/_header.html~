@@ -1,0 +1,18 @@
+{% load staticfiles %}
+<div id="header">
+  <a href="./index.php"><img id="logo" src="{% static "points/img/logo.png" %}"/></a>
+  <div id="rightPanel">
+    <div id="userPanel" class="dropdown">
+      <img src="user/foto/./user_e2c08b20e7c7a4599c137729f4f3f437.jpg" class="userPic img-circle" />
+      <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle amenu">Руслан<b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a href="{% url 'main_index' %}">Главная</a></li>
+        <li><a href="{% url 'points:index' %}">Point List</a></li>
+        <li><a href="{% url 'points:point_maps' %}">Points Map</a></li>
+        <li><a href="{% url 'admin:index' %}">Admin</a></li>
+        <li><a href="{% url 'points:collect' %}">Collector</a></li>
+        <li><a href="{% url 'admin:index' %}">Выйти</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
