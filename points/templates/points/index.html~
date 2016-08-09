@@ -1,9 +1,0 @@
-{% if points_list %}
-    <ul>
-    {% for point in points_list %}
-        <li><a href="/points/{{ question.id }}/">{{ point.point_name }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No point are available.</p>
-{% endif %}

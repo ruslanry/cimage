@@ -7,25 +7,20 @@ from decimal import Decimal
 
 import wikicollector as wc
 
-def testtemplate(request):
-    points_list = Point.objects.order_by('point_name')[100:200]
+def point_list(request):
+    points_list = Point.objects.order_by('point_name')[20:125]
     context = {'points_list': points_list}
-    return render(request, 'points/test/list.html', context)
+    return render(request, 'points/list.html', context)
 
-def index(request):
-    points_list = Point.objects.order_by('point_name')[20:100]
-    context = {'points_list': points_list}
-    return render(request, 'points/lists.html', context)
+def point_map_index(request):
+    return render(request, 'points/index.html')
 
-def point_maps(request):
-    points_list = Point.objects.order_by('point_name')
-    context = {'points_list': points_list}
-    return render(request, 'points/maps.html', context)
-
-def detail(request, point_id):
+def point_detail(request, point_id):
     point = get_object_or_404(Point, pk=point_id)
     return render(request, 'points/detail.html', {'point': point})
 
+	
+	
 def collect(request):
     print("********************Collect external data*****************")
     #print(wc.get_wiki_data())
@@ -38,7 +33,7 @@ def default(obj):
     raise TypeError
 
 def all_point_json(request):
-    result = Point.objects.values()[100:200]
+    result = Point.objects.values('point_name','point_lat','point_lon','id')
     list_result = [entry for entry in result]
     return HttpResponse(json.dumps(list_result, default=default), content_type='application/json')
 

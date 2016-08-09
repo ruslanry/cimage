@@ -1,7 +1,35 @@
-<a href="{% url 'main_index' %}">Главная</a><br>
-<a href="{% url 'points:index' %}">Point List</a><br>
-<a href="{% url 'points:point_maps' %}">Points Map</a><br>
-<a href="{% url 'admin:index' %}">Admin</a><br>
-<a href="{% url 'points:collect' %}">Collector</a><br>
-<a href="">User foto</a><br>
+{% extends "points/_standarttop.html" %}
+{% load staticfiles %}
 
+{% block title %}Главная карта{% endblock %}
+
+{% block linkcss %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "points/css/index.css" %}"/>
+{% endblock %}
+
+
+{% block content %}
+    <div id="content">
+    <div id="lines"></div>
+    <div id="mainMapContainer">
+        <div id="mainMap"></div>
+    </div>
+{% endblock %}
+
+{% block linkscript %}
+    {{ block.super }}
+	<script type="application/javascript" src="{% static "points/js/geo-min.js" %}"></script>
+	<script type="application/javascript" src="{% static "points/js/gps.google.js" %}"></script>
+	<script type="application/javascript" src="{% static "points/js/markerclusterer.js" %}"></script>
+    <script>
+		var jsonUrl   = "{% url 'points:point_json' %}";
+		var detailUrl = "{% url 'points:point_json' %}";
+		var defaultIcon = '{% static "points/img/point.png" %}'
+		var clusterIcon = '{% static "points/img/cluster.png" %}';
+	</script>
+	<script type="application/javascript" src="{% static "points/js/index.js" %}"></script>
+	<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbyDJwI5plXchj5oZIVI9WmySMyUcL8H4&callback=loadMaps">
+	</script>
+{% endblock %}

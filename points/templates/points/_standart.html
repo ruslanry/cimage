@@ -1,0 +1,29 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>{% block title %}__Title__{% endblock %}</title>
+    <meta charset="utf-8">
+	
+{% block linkcss %}
+    <link rel="stylesheet" href="{% static "points/css/allcss.css" %}"/>
+    <link rel="stylesheet" href="{% static "points/css/bootstrap.min.css" %}"/>
+    <link rel="stylesheet" href="{% static "points/css/header.css" %}"/>
+{% endblock %}
+
+{% block linkscript %}
+	<script type="application/javascript" src="{% static "points/js/jquery-2.1.4.min.js" %}"></script>
+	<script type="application/javascript" src="{% static "points/js/jquery.json-2.4.js" %}"></script>
+	<script type="application/javascript" src="{% static "points/js/bootstrap.min.js" %}"></script>
+{% endblock %}
+
+</head>
+<body>
+    {% include "points/__header.html" %}
+    <div class="container">
+		<div class="page-buffer-top"></div>
+		{% block content %}{% endblock %}
+	</div>
+    {% include "points/__footer.html" %}
+</body>
+</html>
